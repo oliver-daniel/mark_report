@@ -5,7 +5,9 @@ import javax.swing.JFrame;
 
 import java.awt.event.ActionListener;
 
-public class MainMenuBar extends JMenuBar{
+//TODO: possibly implement key shortcuts?
+
+public class AppMenuBar extends JMenuBar{
 
   private static final String[] MENUS = {
     "Homework",
@@ -26,7 +28,7 @@ public class MainMenuBar extends JMenuBar{
     "subform"
   };
   
-  public MainMenuBar(ActionListener owner){
+  public AppMenuBar(ActionListener owner){
     JMenu changeClassMenu = new JMenu("Change Class");
     
     JMenuItem chooseExistingClassItem = new JMenuItem("Choose from Existing...");

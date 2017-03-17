@@ -109,6 +109,7 @@ public class SQL {
   
   public static boolean shutdown(){
     try{
+      conn.close();
       DriverManager.getConnection("jdbc:derby:;shutdown=true");
     }catch(SQLException e){
       if (SHUTDOWN_OK.equals(e.getSQLState())) {

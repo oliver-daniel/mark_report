@@ -6,12 +6,19 @@ public class App {
       System.out.println("Database failed to connect.");
     }
     
-    new AppFrame();
+    Runtime.getRuntime().addShutdownHook(new Thread(){
+      @Override
+      public void run(){
+        if(SQL.shutdown()) {
+          System.out.println("Database shutdown successfully.");
+        }else{
+          System.out.println("Database shutdown failed");
+        }
+      }
+    });
     
-    if(SQL.shutdown()) {
-      System.out.println("Database shutdown successfully.");
-    }else{
-      System.out.println("Database shutdown failed");
-    }
+    //begin app run
+    
+    new AppFrame();
   }
 }

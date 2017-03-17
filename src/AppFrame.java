@@ -18,7 +18,7 @@ public class AppFrame extends JFrame implements ActionListener{
     contentPane.addTab("[class_name]",new MainMenu()); //TODO: get class name
     contentPane.addTab("Reports", new MainMenu()); //TODO: create reports
     
-    setJMenuBar(new MainMenuBar(this));
+    setJMenuBar(new AppMenuBar(this));
     add(contentPane);
     
 
