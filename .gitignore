@@ -9,6 +9,7 @@
 *.ear
 *.drjava
 *.java~
+*.log
 
 data/
 
