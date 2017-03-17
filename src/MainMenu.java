@@ -12,12 +12,17 @@ public class MainMenu extends JPanel implements ActionListener {
     super();
     setBorder(BorderFactory.createRaisedBevelBorder());
 
-    add(new CalendarWidget());
+    CalendarWidget cal = new CalendarWidget();
+    cal.getCal().addActionListener(this);
+
+    add(cal);
 
     setVisible(true);
   }
 
   public void actionPerformed(ActionEvent event){
+    //TODO: handle date change
+    System.out.println(event.getActionCommand());
   }
 
 }

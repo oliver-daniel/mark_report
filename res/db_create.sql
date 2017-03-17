@@ -1,17 +1,17 @@
 CREATE TABLE classes_master (
   id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
   time_created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  name varchar(20) NOT NULL,
+  name varchar(20) NOT NULL DEFAULT '',
   CONSTRAINT classes_master_pk PRIMARY KEY (id)
 );
 
 CREATE TABLE students_master (
   id int NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
   time_created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  student_num varchar(11) NOT NULL,
-  last_name varchar(30) NOT NULL,
-  first_name varchar(30) NOT NULL,
-  textbook_num varchar(15) NOT NULL,
+  student_num varchar(11) NOT NULL DEFAULT '',
+  last_name varchar(30) NOT NULL DEFAULT '',
+  first_name varchar(30) NOT NULL DEFAULT '',
+  textbook_num varchar(15) NOT NULL DEFAULT '',
   active boolean NOT NULL DEFAULT TRUE,
   class_id int NOT NULL,
   CONSTRAINT student_class_fk FOREIGN KEY (class_id) REFERENCES classes_master ON DELETE CASCADE,
@@ -107,7 +107,7 @@ CREATE TABLE other_master (
   time_created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   day_id date NOT NULL,
   CONSTRAINT other_day_fk FOREIGN KEY (day_id) REFERENCES days_master ON DELETE CASCADE,
-  description varchar(140) NOT NULL,
+  description varchar(140) NOT NULL DEFAULT '',
   CONSTRAINT other_master_pk PRIMARY KEY (id)
 );
 

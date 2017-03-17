@@ -2,6 +2,7 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import java.io.BufferedReader;
@@ -30,13 +31,14 @@ public class SQL {
     OTHER_LOG
   };
 
+  public static Class[] classes = {Integer.class};
+
   private static Connection conn;
 
   public static boolean connect(){
     try{
       System.out.println("Attempting to connect...");
       conn = DriverManager.getConnection("jdbc:derby:data");
-      conn.setAutoCommit(false);
       return true;
 
     }catch(SQLException e) {
@@ -52,6 +54,10 @@ public class SQL {
         return false;
       }
     }
+  }
+
+  public static ResultSet getAll(Table table){
+    return execute("SELECT * FROM "+table.toString()+" WHERE TRUE");
   }
 
   public static boolean create(){
@@ -102,6 +108,7 @@ public class SQL {
       }
       rs.getStatement().close();
       rs.close();
+      System.out.println("closed.");
     }catch(SQLException e) {
       e.printStackTrace();
     }
