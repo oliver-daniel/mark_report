@@ -5,7 +5,9 @@ public class App {
     }else{
       System.out.println("Database failed to connect.");
     }
-
+    
+    new AppFrame();
+    
     if(SQL.shutdown()) {
       System.out.println("Database shutdown successfully.");
     }else{
