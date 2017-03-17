@@ -5,7 +5,7 @@ public class App {
     }else{
       System.out.println("Database failed to connect.");
     }
-    
+
     Runtime.getRuntime().addShutdownHook(new Thread(){
       @Override
       public void run(){
@@ -16,9 +16,9 @@ public class App {
         }
       }
     });
-    
+
     //begin app run
-    
+
     new AppFrame();
   }
 }
