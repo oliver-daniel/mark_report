@@ -57,6 +57,9 @@ public class SQL {
   }
 
   public static ResultSet getAll(Table table){
+    if (table==Table.STUDENTS_MASTER) {
+      return execute ("SELECT * FROM STUDENTS_MASTER WHERE CLASS_ID = "+App.CLASS_ID);
+    }
     return execute("SELECT * FROM "+table.toString()+" WHERE TRUE");
   }
 

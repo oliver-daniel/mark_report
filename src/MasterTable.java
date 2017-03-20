@@ -54,9 +54,9 @@ public class MasterTable extends JTable {
     case ORGANIZATION_MASTER:
       cm.getColumn(cm.getColumnIndex("DATES_RECORDED_SCORE_MAX"))
       .setCellEditor(new DefaultCellEditor(range));
-      cm.getColumn(cm.getColumnIndex("NOTES_IN_ORDER_MAX"))
+      cm.getColumn(cm.getColumnIndex("NOTES_IN_ORDER_SCORE_MAX"))
       .setCellEditor(new DefaultCellEditor(range));
-      cm.getColumn(cm.getColumnIndex("NOTES_SECURED_IN_BINDER_MAX"))
+      cm.getColumn(cm.getColumnIndex("NOTES_SECURED_IN_BINDER_SCORE_MAX"))
       .setCellEditor(new DefaultCellEditor(range));
       break;
     case ORGANIZATION_LOG:

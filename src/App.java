@@ -1,4 +1,6 @@
 public class App {
+  public static int CLASS_ID=1; //TODO: get, etc
+
   public static void main(String[] args) {
     if(SQL.connect()) {
       System.out.println("Database connected successfully.");

@@ -42,6 +42,7 @@ CREATE TABLE evals_master (
   time_created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   name int NOT NULL,
   day_id date NOT NULL,
+  type smallint NOT NULL DEFAULT 0,
   CONSTRAINT eval_day_fk FOREIGN KEY (day_id) REFERENCES days_master ON DELETE CASCADE,
   CONSTRAINT evals_master_pk PRIMARY KEY (id)
 );
