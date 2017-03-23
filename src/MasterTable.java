@@ -21,8 +21,8 @@ public class MasterTable extends JTable {
   private void setCellProperties(SQL.Table tableType){
     TableColumnModel cm = getColumnModel();
 
-    JComboBox<Integer> range = new JComboBox<Integer>(new Integer[] {new Integer(0),new Integer(1),new Integer(2),new Integer(3),new Integer(4),new Integer(5),
-                                                                     new Integer(6),new Integer(7),new Integer(8),new Integer(9),new Integer(10)});
+    JComboBox<Integer> range = new JComboBox<Integer>(new Integer[] {Integer.valueOf(0),Integer.valueOf(1),Integer.valueOf(2),Integer.valueOf(3),Integer.valueOf(4),Integer.valueOf(5),
+                                                                     Integer.valueOf(6),Integer.valueOf(7),Integer.valueOf(8),Integer.valueOf(9),Integer.valueOf(10)});
 
     switch(tableType) {
     case DAYS_MASTER:
@@ -38,7 +38,7 @@ public class MasterTable extends JTable {
       .setCellEditor(new DefaultCellEditor(new JComboBox<String>(new String[] {"Present","Absent","Late"})));
       break;
     case HOMEWORK_MASTER:
-      JComboBox<Integer> options = new JComboBox<Integer>(new Integer[] {new Integer(5), new Integer(10), new Integer(20), new Integer(30)});
+      JComboBox<Integer> options = new JComboBox<Integer>(new Integer[] {Integer.valueOf(5), Integer.valueOf(10), Integer.valueOf(20), Integer.valueOf(30)});
       options.setEditable(true);
       cm.getColumn(cm.getColumnIndex("OUT_OF"))
       .setCellEditor(new DefaultCellEditor(options));
@@ -66,6 +66,8 @@ public class MasterTable extends JTable {
       .setCellEditor(new DefaultCellEditor(range));
       cm.getColumn(cm.getColumnIndex("NOTES_SECURED_IN_BINDER"))
       .setCellEditor(new DefaultCellEditor(range));
+      break;
+    default:
       break;
     }
   }

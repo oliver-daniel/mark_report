@@ -40,8 +40,6 @@ public class SQL {
     }
   };
 
-  public static Class[] classes = {Integer.class};
-
   private static Connection conn;
 
   public static boolean connect(){
@@ -67,9 +65,9 @@ public class SQL {
 
   public static ResultSet getAll(Table table){
     if (table==Table.STUDENTS_MASTER) {
-      return execute ("SELECT * FROM STUDENTS_MASTER WHERE CLASS_ID = "+App.CLASS_ID);
+      return executeSafe("SELECT * FROM STUDENTS_MASTER WHERE CLASS_ID = "+App.CLASS_ID);
     }
-    return execute("SELECT * FROM "+table.toString()+" WHERE TRUE");
+    return executeSafe("SELECT * FROM "+table.toString()+" WHERE TRUE");
   }
 
   public static boolean create(){
@@ -101,13 +99,17 @@ public class SQL {
     }
   }
 
-  public static ResultSet execute(String command){
+  public static ResultSet executeSafe(String command){
     try{
       return conn.createStatement().executeQuery(command);
     }catch(SQLException e) {
       e.printStackTrace();
     }
     return null;
+  }
+
+  public static ResultSet execute(String command) throws SQLException {
+    return conn.createStatement().executeQuery(command);
   }
 
   public static void printResult(ResultSet rs){

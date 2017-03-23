@@ -18,6 +18,7 @@ public class AppFrame extends JFrame implements ActionListener {
     contentPane = new JTabbedPane();
     contentPane.addTab("Class",new MainMenu());
     contentPane.addTab("Reports",new javax.swing.JScrollPane(new MasterTable(SQL.Table.STUDENTS_MASTER))); //TODO: create reports page
+    contentPane.addTab("SQL Console", new SQLConsole());
 
     setJMenuBar(new AppMenuBar(this));
     add(contentPane);

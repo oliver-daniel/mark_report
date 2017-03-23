@@ -50,8 +50,6 @@ public class AttendanceForm extends JDialog implements ActionListener {
       pane.add(comp);
     }
 
-    JScrollPane scrollPane = new JScrollPane(pane);
-
     add(new JScrollPane(pane), BorderLayout.CENTER);
 
 

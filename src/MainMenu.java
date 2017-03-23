@@ -1,5 +1,6 @@
 import javax.swing.JPanel;
 import javax.swing.JComponent;
+import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -15,14 +16,25 @@ public class MainMenu extends JPanel implements ActionListener {
     CalendarWidget cal = new CalendarWidget();
     cal.getCal().addActionListener(this);
 
-    add(cal);
+    JButton tblClassBtn = new JButton("Manage Class");
+    tblClassBtn.addActionListener(this);
+    JButton attendanceBtn= new JButton("Take Attendance");
+    attendanceBtn.addActionListener(this);
+
+    add(tblClassBtn);
+    add(attendanceBtn);
 
     setVisible(true);
   }
 
   public void actionPerformed(ActionEvent event){
     //TODO: handle date change
-    System.out.println(event.getActionCommand());
+    String ae = event.getActionCommand();
+    if ("Manage Class".equals(ae)) {
+      new MasterDialog(SQL.Table.STUDENTS_MASTER);
+    } else if ("Take Attendance".equals(ae)) {
+      new AttendanceForm();
+    }
   }
 
 }

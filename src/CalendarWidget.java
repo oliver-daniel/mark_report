@@ -28,7 +28,7 @@ public class CalendarWidget extends JPanel implements ChangeListener {
   }
 
   public Date getDate(){
-    return date;
+    return (Date)date.clone();
   }
 
   private void setDate(Date newDate){
