@@ -13,6 +13,7 @@ public class MasterDialog extends JDialog implements ActionListener {
 
   public MasterDialog(SQL.Table tableType){
     super((Frame)null);
+    setTitle(App.CLASS_NAME + " Manage "+tableType.getName());
     setLayout(new BorderLayout());
     setLocationRelativeTo(null);
     setUndecorated(false);

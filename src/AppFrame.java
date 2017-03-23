@@ -11,12 +11,12 @@ public class AppFrame extends JFrame implements ActionListener {
   private JTabbedPane contentPane;
 
   public AppFrame(){
-    super("Classic Devine Markbook");  //TODO: better name
+    super(App.CLASS_NAME);  //TODO: better name
     setSize (WIDTH, HEIGHT); //TODO: may be unnecessary
 
 
     contentPane = new JTabbedPane();
-    contentPane.addTab("[class_name]",new MainMenu()); //TODO: get class name
+    contentPane.addTab("Class",new MainMenu());
     contentPane.addTab("Reports",new javax.swing.JScrollPane(new MasterTable(SQL.Table.STUDENTS_MASTER))); //TODO: create reports page
 
     setJMenuBar(new AppMenuBar(this));

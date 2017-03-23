@@ -17,18 +17,27 @@ public class SQL {
   private static final String SHUTDOWN_OK  = "XJ015";
 
   public static enum Table {
-    CLASSES_MASTER,
-    DAYS_MASTER,
-    STUDENTS_MASTER,
-    ATTENDANCE_LOG,
-    HOMEWORK_MASTER,
-    HOMEWORK_LOG,
-    EVALS_MASTER,
-    EVALS_LOG,
-    ORGANIZATION_MASTER,
-    ORGANIZATION_LOG,
-    OTHER_MASTER,
-    OTHER_LOG
+    CLASSES_MASTER ("Classes"),
+    DAYS_MASTER ("Days"),
+    STUDENTS_MASTER ("Students"),
+    ATTENDANCE_LOG ("Attendance Log"),
+    HOMEWORK_MASTER ("Homework"),
+    HOMEWORK_LOG ("Homework Log"),
+    EVALS_MASTER ("Evaluations"),
+    EVALS_LOG ("Evaluations Log"),
+    ORGANIZATION_MASTER ("Organization"),
+    ORGANIZATION_LOG ("Organization Log"),
+    OTHER_MASTER ("Other"),
+    OTHER_LOG ("Other Log");
+
+    Table(String name){
+      this.name = name;
+    }
+
+    String name;
+    public String getName(){
+      return name;
+    }
   };
 
   public static Class[] classes = {Integer.class};

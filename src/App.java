@@ -1,5 +1,6 @@
 public class App {
   public static int CLASS_ID=1; //TODO: get, etc
+  public static String CLASS_NAME = "Grade 11 MaCS Chem"; //TODO: get, etc
 
   public static void main(String[] args) {
     if(SQL.connect()) {
@@ -20,7 +21,7 @@ public class App {
     });
 
     //begin app run
-
+    //new AttendanceForm();
     new AppFrame();
   }
 }
